@@ -44,7 +44,7 @@
                         </div>
 <!--                        <input type="text" name="role" class="form-control" placeholder="Repeat-password">-->
                         <select name="role" class="form-control" required>
-                            <option value="" disabled selected hidden>Choose a role</option>
+                            <option value="empty_role_value" disabled selected hidden>Choose a role</option>
                             <option >Editor</option>
                             <option>Admin</option>
                         </select>
