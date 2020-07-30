@@ -62,7 +62,7 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Already a member?<a href="#">Log in!</a>
+                    Already a member?<a href="">Log in!</a>
                 </div>
             </div>
         </div>
