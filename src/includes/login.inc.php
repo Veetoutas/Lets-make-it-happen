@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_POST['login-submit'])) {
 
     require 'db.inc.php';
@@ -53,16 +52,10 @@ if (isset($_POST['login-submit'])) {
 
         }
     }
-
 }
 
 // Just in case a hacker managed to go through validation, redirect him to index.php
 else {
-
     header('Location: ../index.php?');
     exit();
-
 }
-
-
-

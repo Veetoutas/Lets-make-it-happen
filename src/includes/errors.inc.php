@@ -1,5 +1,4 @@
 <?php
-
 // SIGN UP error messages
 if (isset($_GET['error'])) {
     $err_msg = $_GET['error'];

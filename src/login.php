@@ -1,4 +1,3 @@
-
 <?php
     require 'header.php';
 ?>
@@ -10,7 +9,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form method="POST" action="includes/login.inc.php">
+                    <form method="POST" action="src/includes/login.inc.php">
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
@@ -45,4 +44,3 @@
 
 <?php
     require 'footer.php';
-?>

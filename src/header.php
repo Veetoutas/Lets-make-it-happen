@@ -18,5 +18,5 @@ session_start();
     <!------ Include the above in your HEAD tag ---------->
 
     <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>

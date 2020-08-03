@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form method="POST" action="includes/signup.inc.php">
+                <form method="POST" action="src/includes/signup.inc.php">
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
@@ -71,4 +71,3 @@
 
 <?php
     require 'footer.php';
-?>
