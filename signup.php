@@ -6,6 +6,11 @@
         <div class="card">
             <div class="card-header">
                 <h3>Sign Up</h3>
+                <div id="error_msg">
+                    <?php
+                        include 'includes/errors.inc.php';
+                    ?>
+                </div>
             </div>
             <div class="card-body">
                 <form method="POST" action="includes/signup.inc.php">
@@ -62,7 +67,7 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Already a member?<a href="">Log in!</a>
+                    Already a member?<a href="login.php">Log in!</a>
                 </div>
             </div>
         </div>

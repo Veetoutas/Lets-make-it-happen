@@ -12,27 +12,27 @@ if (isset($_POST['signup-submit'])) {
 
     // We check to see if the users inputs are spelled correctly and check for empty fields
     if (empty($username) || empty($email) || empty($pwd) || empty($repeat_pwd)) {
-        header('Location: /signup.php?error=emptyfields&username='.$username.'&email='.$email);
+        header('Location: ../signup.php?error=emptyfields&username='.$username.'&email='.$email);
         exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && (!preg_match("/^[a-zA-Z0-9]*$/", $username ))) {
-        header('Location: /signup.php?error=invalidusernameemail&role='.$role);
+        header('Location: ../signup.php?error=invalidusernameemail&role='.$role);
         exit();
     }
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header('Location: /signup.php?error=invalidemail&username='.$username.'&role='.$role);
+        header('Location: ../signup.php?error=invalidemail&username='.$username.'&role='.$role);
         exit();
     }
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username )) {
-        header('Location: /signup.php?error=invalidusername&email='.$email.'&role='.$role);
+        header('Location: ../signup.php?error=invalidusername&email='.$email.'&role='.$role);
         exit();
     }
     else if ($pwd !== $repeat_pwd) {
-        header('Location: /signup.php?error=passwordcheck&username='.$username.'&email='.$email.'&role='.$role);
+        header('Location: ../signup.php?error=passwordcheck&username='.$username.'&email='.$email.'&role='.$role);
         exit();
     }
     else if ($role == NULL) {
-        header('Location: /signup.php?error=emptyrole&username='.$username.'&email='.$email);
+        header('Location: ../signup.php?error=emptyrole&username='.$username.'&email='.$email);
         exit();
     }
 
@@ -41,7 +41,7 @@ if (isset($_POST['signup-submit'])) {
         $sql = "SELECT * FROM users WHERE nameUsers=? OR emailUsers=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header('Location: signup.php?error=sqlerror');
+            header('Location: ../signup.php?error=sqlerror');
             exit();
         }
         else  {
@@ -50,7 +50,7 @@ if (isset($_POST['signup-submit'])) {
             mysqli_stmt_store_result($stmt);
             $resultCheck = mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                header('Location: signup.php?error=usertaken');
+                header('Location: ../signup.php?error=usertaken');
                 exit();
             }
             // If the user is not taken we insert the new one to DB
@@ -58,14 +58,14 @@ if (isset($_POST['signup-submit'])) {
                 $sql = "INSERT INTO users (nameUsers, emailUsers, pwdUsers, role) VALUE (?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header('Location: signup.php?error=sqlerror');
+                    header('Location: ../signup.php?error=sqlerror');
                     exit();
                 }
                 else {
                     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, 'ssss', $username, $email, $hashedPwd, $role);
                     mysqli_stmt_execute($stmt);
-                    header('Location: signup.php?signup=success');
+                    header('Location: ../signup.php?signup=success');
                     exit();
                 }
             }
